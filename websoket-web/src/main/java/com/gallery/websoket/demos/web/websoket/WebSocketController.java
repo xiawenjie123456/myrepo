@@ -24,7 +24,7 @@ public class WebSocketController {
      * 发送消息给指定用户
      *
      * @param message WebSocket 消息
-     * @return 响应结果
+     * @return 响应结果1
      */
     @PostMapping("/send")
     public String sendMessage(@RequestBody MyWebSocketMessage message) {
