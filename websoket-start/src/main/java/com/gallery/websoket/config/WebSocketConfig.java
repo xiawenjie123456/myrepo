@@ -1,0 +1,26 @@
+package com.gallery.websoket.config;
+
+
+import com.gallery.websoket.handler.WebSocketHandler;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+
+@Configuration
+@EnableWebSocket
+public class WebSocketConfig implements WebSocketConfigurer {
+
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(webSocketHandler(), "/ws")
+                .setAllowedOrigins("*")  // 允许所有来源
+                .withSockJS();           // 启用 SockJS fallback
+    }
+
+    @Bean
+    public WebSocketHandler webSocketHandler() {
+        return new WebSocketHandler();
+    }
+}
