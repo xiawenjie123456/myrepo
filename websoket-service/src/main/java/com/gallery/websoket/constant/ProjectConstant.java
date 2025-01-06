@@ -12,6 +12,6 @@ public class ProjectConstant {
         // 系统消息
         public static final byte SYSTEM = 3;
 
-        // 其他类型...
+        // 其他类型(文本 图片等)...
     }
 }
